@@ -1,7 +1,89 @@
+<script setup lang="ts">
+import type { ButtonProps } from '@nuxt/ui'
+const links = ref<ButtonProps[]>([
+    {
+        label: 'View My Work',
+        to: '/',
+        target: '_blank',
+        trailingIcon: 'i-lucide-arrow-right',
+        size: 'xl',
+        class: 'rounded-full px-6 py-3 shadow-lg shadow-primary-200 dark:shadow-primary-900/30',
+    },
+    {
+        label: 'Download CV',
+        to: '/',
+        target: '_blank',
+        icon: 'i-lucide-download',
+        size: 'xl',
+        color: 'neutral',
+        variant: 'subtle',
+        class: 'rounded-full px-6 py-3',
+    }
+])
+const aboutCards = ref([
+    {
+        title: '5+ Years',
+        description: 'Experience in UI/UX design and development, delivering high-quality digital products for various clients.',
+        icon: 'i-lucide-briefcase'
+    },
+    {
+        title: '50+ Projects',
+        description: 'Completed over 50 projects ranging from web applications to mobile apps for various clients.',
+        icon: 'i-lucide-layers-3'
+    }
+])
+const skillCards = ref([
+    {
+        title: 'UI/UX Design',
+        // description: 'Proficient in creating user-centric designs using tools like Figma, Sketch, and Adobe XD.',
+        icon: 'i-lucide-pen-tool',
+        items: ["User Research", "Wireframing", "Prototyping", "Design Systems", "Interaction Design", "Information Architecture"]
+    },
+    {
+        title: 'Front-end Development',
+        // description: 'Skilled in HTML, CSS, JavaScript, and frameworks like Vue.js and Nuxt.js for building responsive web applications.',
+        icon: 'i-lucide-code',
+        items: ["HTML5 / CSS3", "JavaScript / TypeScript", "Vue / Nuxt.js", "Tailwind CSS", "Responsive Layouts"]
+    },
+    {
+        title: 'Software & Tools',
+        // description: 'Experienced in creating interactive prototypes and wireframes to visualize design concepts and user flows.',
+        icon: 'i-lucide-terminal',
+        items: ["Figma", "Adobe Creative Suite", "VS Code", "Git / GitHub", "Jira / Notion", "Framer", "Webflow"]
+    }
+])
+const steps = [
+    {
+        icon: 'i-lucide-search',
+        title: 'Research',
+        description: 'Understanding the problem, user needs, and market landscape.'
+    },
+    {
+        icon: 'i-lucide-panels-top-left',
+        title: 'Wireframe',
+        description: 'Structuring the layout and flow without visual distractions.'
+    },
+    {
+        icon: 'i-lucide-pen-tool',
+        title: 'Design',
+        description: 'Crafting the visual identity, typography, and color systems.'
+    },
+    {
+        icon: 'i-lucide-zap',
+        title: 'Prototype',
+        description: 'Creating interactive mockups to test and validate interactions.'
+    },
+    {
+        icon: 'i-lucide-code',
+        title: 'Build',
+        description: 'Developing pixel-perfect, responsive code ready for production.'
+    }
+]
+</script>
 <template>
     <div>
         <UPageHero
-            description="I'm Alex, a UI/UX Designer & UI Developer crafting clean, user-centric interfaces that blend aesthetics with functionality."
+            description="I'm Laix, a UI/UX Designer & UI Developer crafting clean, user-centric interfaces that blend aesthetics with functionality."
             :links="links" orientation="horizontal">
             <template #headline>
                 <UBadge label="Available for work" variant="subtle"
@@ -51,11 +133,12 @@
             orientation="horizontal" reverse>
             <template #body>
                 <div class="grid lg:grid-cols-2 gap-8">
-                    <UPageCard v-for="(aboutCard, index) in aboutCards" :key="index" v-bind="aboutCard"
-                        variant="subtle" spotlight />
+                    <UPageCard v-for="(aboutCard, index) in aboutCards" :key="index" v-bind="aboutCard" variant="subtle"
+                        spotlight />
                 </div>
             </template>
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f" class="rounded-xl h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out" />
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f"
+                class="rounded-xl h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out" />
             <!-- <Placeholder /> -->
         </UPageSection>
 
@@ -63,7 +146,8 @@
             description="My technical proficiency and design toolkit that I use to bring ideas to life.">
             <template #body>
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <UPageCard v-for="(skillCard, index) in skillCards" :key="index" v-bind="skillCard" variant="subtle" spotlight>
+                    <UPageCard v-for="(skillCard, index) in skillCards" :key="index" v-bind="skillCard" variant="subtle"
+                        spotlight>
                         <template #description>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 <UBadge v-for="(item, i) in skillCard.items" :key="i" :label="item" variant="outline"
@@ -163,84 +247,3 @@
         </UPageSection>
     </div>
 </template>
-<script setup lang="ts">
-const links = [
-    {
-        label: 'View My Work',
-        to: '/',
-        target: '_blank',
-        trailingIcon: 'i-lucide-arrow-right',
-        size: 'xl',
-        class: 'rounded-full px-6 py-3 shadow-lg shadow-primary-200 dark:shadow-primary-900/30',
-    },
-    {
-        label: 'Download CV',
-        to: '/',
-        target: '_blank',
-        icon: 'i-lucide-download',
-        size: 'xl',
-        color: 'neutral',
-        variant: 'subtle',
-        class: 'rounded-full px-6 py-3',
-    }
-]
-const aboutCards = ref([
-    {
-        title: '5+ Years',
-        description: 'Experience in UI/UX design and development, delivering high-quality digital products for various clients.',
-        icon: 'i-lucide-briefcase'
-    },
-    {
-        title: '50+ Projects',
-        description: 'Completed over 50 projects ranging from web applications to mobile apps for various clients.',
-        icon: 'i-lucide-layers-3'
-    }
-])
-const skillCards = ref([
-    {
-        title: 'UI/UX Design',
-        // description: 'Proficient in creating user-centric designs using tools like Figma, Sketch, and Adobe XD.',
-        icon: 'i-lucide-pen-tool',
-        items: ["User Research", "Wireframing", "Prototyping", "Design Systems", "Interaction Design", "Information Architecture"]
-    },
-    {
-        title: 'Front-end Development',
-        // description: 'Skilled in HTML, CSS, JavaScript, and frameworks like Vue.js and Nuxt.js for building responsive web applications.',
-        icon: 'i-lucide-code',
-        items: ["HTML5 / CSS3", "JavaScript / TypeScript", "Vue / Nuxt.js", "Tailwind CSS", "Responsive Layouts"]
-    },
-    {
-        title: 'Software & Tools',
-        // description: 'Experienced in creating interactive prototypes and wireframes to visualize design concepts and user flows.',
-        icon: 'i-lucide-terminal',
-        items: ["Figma", "Adobe Creative Suite", "VS Code", "Git / GitHub", "Jira / Notion", "Framer", "Webflow"]
-    }
-])
-const steps = [
-    {
-        icon: 'i-lucide-search',
-        title: 'Research',
-        description: 'Understanding the problem, user needs, and market landscape.'
-    },
-    {
-        icon: 'i-lucide-panels-top-left',
-        title: 'Wireframe',
-        description: 'Structuring the layout and flow without visual distractions.'
-    },
-    {
-        icon: 'i-lucide-pen-tool',
-        title: 'Design',
-        description: 'Crafting the visual identity, typography, and color systems.'
-    },
-    {
-        icon: 'i-lucide-zap',
-        title: 'Prototype',
-        description: 'Creating interactive mockups to test and validate interactions.'
-    },
-    {
-        icon: 'i-lucide-code',
-        title: 'Build',
-        description: 'Developing pixel-perfect, responsive code ready for production.'
-    }
-]
-</script>
