@@ -79,12 +79,36 @@ const steps = [
         description: 'Developing pixel-perfect, responsive code ready for production.'
     }
 ]
+const ui = {
+    UPageHero: {
+        description: 'lg:text-base font-space'
+    },
+    UPageSection: {
+        description: 'lg:text-base font-space'
+    },
+    AboutCard: {
+        leadingIcon: 'size-8',
+        title: 'text-xl font-medium',
+        description: 'lg:text-sm text-muted font-space'
+    },
+    SkillCard: {
+        label: 'text-sm text-muted font-space'
+    },
+    ProcessSteps: {
+        steps: {
+            description: 'lg:text-sm text-muted font-space'
+        }
+    },
+    UPageCTA: {
+        description: 'lg:text-base font-space text-muted'
+    }
+}
 </script>
 <template>
     <div>
         <UPageHero
             description="I'm Laix, a UI/UX Designer & UI Developer crafting clean, user-centric interfaces that blend aesthetics with functionality."
-            :links="links" orientation="horizontal">
+            :links="links" orientation="horizontal" :ui="ui.UPageHero">
             <template #headline>
                 <UBadge label="Available for work" variant="subtle"
                     class="font-semibold uppercase tracking-wide py-2 px-4 rounded-full" />
@@ -130,11 +154,11 @@ const steps = [
 
         <UPageSection headline="About Me" title="Bridging the gap between design and development"
             description="I am a passionate UI/UX Designer and UI Developer with over 5 years of experience in creating digital products. My unique background allows me to design with implementation in mind, ensuring that beautiful interfaces are also feasible, accessible, and performant. I thrive in collaborative environments and love solving complex problems through clean, minimal design."
-            orientation="horizontal" reverse>
+            orientation="horizontal" reverse :ui="ui.UPageSection">
             <template #body>
                 <div class="grid lg:grid-cols-2 gap-8">
                     <UPageCard v-for="(aboutCard, index) in aboutCards" :key="index" v-bind="aboutCard" variant="subtle"
-                        spotlight />
+                        spotlight :ui="ui.AboutCard" />
                 </div>
             </template>
             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f"
@@ -143,7 +167,8 @@ const steps = [
         </UPageSection>
 
         <UPageSection title="Skills & Tools"
-            description="My technical proficiency and design toolkit that I use to bring ideas to life.">
+            description="My technical proficiency and design toolkit that I use to bring ideas to life."
+            :ui="ui.UPageSection">
             <template #body>
                 <div class="grid lg:grid-cols-3 gap-8">
                     <UPageCard v-for="(skillCard, index) in skillCards" :key="index" v-bind="skillCard" variant="subtle"
@@ -151,7 +176,7 @@ const steps = [
                         <template #description>
                             <div class="mt-4 flex flex-wrap gap-2">
                                 <UBadge v-for="(item, i) in skillCard.items" :key="i" :label="item" variant="outline"
-                                    color="neutral" size="lg" class="rounded-lg px-3 py-2" />
+                                    color="neutral" size="lg" class="rounded-lg px-3 py-2" :ui="ui.SkillCard" />
                             </div>
                         </template>
                     </UPageCard>
@@ -160,9 +185,10 @@ const steps = [
         </UPageSection>
 
         <UPageSection title="My Creative Process"
-            description="A structured approach ensures that every project is delivered with quality and purpose.">
+            description="A structured approach ensures that every project is delivered with quality and purpose."
+            :ui="ui.UPageSection">
             <template #body>
-                <ProcessSteps :steps="steps" />
+                <ProcessSteps :steps="steps" :ui="ui.ProcessSteps.steps" />
             </template>
         </UPageSection>
 
@@ -209,19 +235,19 @@ const steps = [
         <UPageSection>
             <UPageCTA title="Let's work together!"
                 description="Have a project in mind or just want to say hi? I'm currently open to new opportunities and collaborations."
-                variant="subtle">
+                variant="subtle" :ui="ui.UPageCTA">
                 <template #body>
-                    <div class="flex justify-center gap-12">
+                    <div class="flex justify-center gap-12 w-full">
                         <!-- Email -->
                         <div class="flex items-center gap-4">
                             <div class="p-2 rounded-lg bg-primary-50 dark:bg-primary-500/10">
-                                <UIcon name="i-lucide-mail" class="text-primary-500 size-6 flex" />
+                                <UIcon name="i-lucide-at-sign" class="text-primary-500 size-6 flex" />
                             </div>
                             <div>
                                 <h4 class="font-semibold text-highlighted">
                                     Email Me
                                 </h4>
-                                <p class="text-muted">
+                                <p class="font-space text-muted text-sm">
                                     laixander@gmail.com
                                 </p>
                             </div>
@@ -236,8 +262,23 @@ const steps = [
                                 <h4 class="font-semibold text-highlighted">
                                     Location
                                 </h4>
-                                <p class="text-muted">
+                                <p class="font-space text-muted text-sm">
                                     Manila, Philippines (Remote)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 rounded-lg bg-primary-50 dark:bg-primary-500/10">
+                                <UIcon name="i-lucide-phone" class="text-primary-500 size-6 flex" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-highlighted">
+                                    Mobile
+                                </h4>
+                                <p class="font-space text-muted text-sm">
+                                    09123456789
                                 </p>
                             </div>
                         </div>

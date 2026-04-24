@@ -1,5 +1,5 @@
 <template>
-    <div class="relative">
+    <div :class="[props.ui?.root, 'relative']">
         <!-- Line behind icons -->
         <div class="hidden lg:block absolute top-12 left-0 right-0 h-0.5 
              bg-elevated 
@@ -30,11 +30,11 @@
                         {{ index + 1 }}
                     </span>
 
-                    <h3 class="text-lg font-bold mb-2 text-highlighted">
+                    <h3 :class="[props.ui?.title || 'text-lg font-bold text-highlighted', 'mb-2']">
                         {{ step.title }}
                     </h3>
 
-                    <p class="leading-relaxed text-toned">
+                    <p :class="[props.ui?.description || 'text-toned', 'leading-relaxed']">
                         {{ step.description }}
                     </p>
                 </div>
@@ -52,5 +52,10 @@ export interface Step {
 
 const props = defineProps<{
     steps: Step[]
+    ui?: {
+        root?: string
+        title?: string
+        description?: string
+    }
 }>()
 </script>
