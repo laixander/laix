@@ -79,6 +79,29 @@ const steps = [
         description: 'Developing pixel-perfect, responsive code ready for production.'
     }
 ]
+const featuredProjects = ref([
+    {
+        title: 'LearnFast for Kids',
+        description: 'An educational platform designed for children to learn and explore through interactive lessons and games.',
+        image: 'current',
+        tags: ['AI', 'Nuxt', 'Vue', 'Tailwind CSS'],
+        to: '/'
+    },
+    {
+        title: 'Acumen',
+        description: 'An AI-powered learning companion designed to identify knowledge gaps and accelerate mastery through personalized study plans.',
+        image: 'acumen',
+        tags: ['AI', 'Nuxt', 'Vue', 'Tailwind CSS'],
+        to: 'https://app-acumen.vercel.app/'
+    },
+    {
+        title: 'Sanitarium',
+        description: 'A comprehensive dual-interface hospital management system featuring a patient queuing kiosk and professional admin dashboard.',
+        image: 'sanitarium',
+        tags: ['Hospital Management', 'Nuxt', 'Vue', 'Tailwind CSS'],
+        to: 'https://app-sanitarium.vercel.app/'
+    }
+])
 const ui = {
     UPageHero: {
         description: 'lg:text-base font-space'
@@ -126,7 +149,7 @@ const ui = {
             <div class="relative">
                 <div
                     class="relative z-10 rounded-3xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 ease-out">
-                    <img src="/img/current.png" alt="Learn Fast for Kids" class="w-full h-auto object-cover">
+                    <img src="/img/current-light.png" alt="Learn Fast for Kids" class="w-full h-auto object-cover">
                 </div>
                 <div
                     class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-400/20 dark:bg-indigo-500/10 rounded-full blur-2xl">
@@ -159,8 +182,21 @@ const ui = {
         </UPageHero>
 
         <UPageSection headline="About Me" title="Bridging the gap between design and development"
-            description="I am a passionate Full-Stack UI/UX Designer with over 5 years of experience in creating digital products. My unique background allows me to design with implementation in mind, ensuring that beautiful interfaces are also feasible, accessible, and performant. I thrive in collaborative environments and love solving complex problems through clean, minimal design."
             orientation="horizontal" reverse :ui="ui.UPageSection">
+            <template #description>
+                <p class="mb-4">
+                    I am a passionate Full-Stack UI/UX Designer with over 5 years of experience in creating digital
+                    products.
+                </p>
+                <p class="mb-4">
+                    My unique background allows me to design with implementation in mind, ensuring that beautiful
+                    interfaces are also feasible, accessible, and performant.
+                </p>
+                <p>
+                    I thrive in collaborative environments and love solving complex problems through clean, minimal
+                    design.
+                </p>
+            </template>
             <template #body>
                 <div class="grid lg:grid-cols-2 gap-8">
                     <UPageCard v-for="(aboutCard, index) in aboutCards" :key="index" v-bind="aboutCard" variant="subtle"
@@ -171,6 +207,21 @@ const ui = {
                 class="rounded-xl h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out" />
             <!-- <Placeholder /> -->
         </UPageSection>
+
+        <UPageSection title="Featured Projects"
+            description="A selection of my recent work that showcases my skills in UI/UX design and development."
+            :ui="ui.UPageSection">
+            <template #body>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <ProjectCard v-for="(project, index) in featuredProjects" :key="index" v-bind="project" />
+                </div>
+                <div class="mt-12 flex justify-center">
+                    <UButton label="View All Projects" to="/" trailing-icon="i-lucide-arrow-right" size="xl"
+                        variant="subtle" class="rounded-full px-8 py-4 font-semibold hover:shadow-lg transition-all" />
+                </div>
+            </template>
+        </UPageSection>
+
 
         <UPageSection title="Skills & Tools"
             description="My technical proficiency and design toolkit that I use to bring ideas to life."
