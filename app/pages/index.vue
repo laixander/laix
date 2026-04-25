@@ -107,7 +107,7 @@ const ui = {
 <template>
     <div>
         <UPageHero
-            description="I'm Laix, a UI/UX Designer & UI Developer crafting clean, user-centric interfaces that blend aesthetics with functionality."
+            description="I'm Laix, a Full-Stack UI/UX Designer crafting clean, user-centric interfaces that blend aesthetics with functionality."
             :links="links" orientation="horizontal" :ui="ui.UPageHero">
             <template #headline>
                 <UBadge label="Available for work" variant="subtle"
@@ -126,8 +126,7 @@ const ui = {
             <div class="relative">
                 <div
                     class="relative z-10 rounded-3xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 ease-out">
-                    <img src="https://images.unsplash.com/photo-1680055196833-c2965de0caec?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMDNkJTIwc2hhcGVzJTIwbWluaW1hbCUyMGRlc2lnbiUyMHZpb2xldHxlbnwxfHx8fDE3NjUyNDY5NDB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                        alt="Abstract Design Layout" class="w-full h-auto object-cover">
+                    <img src="/img/current.png" alt="Learn Fast for Kids" class="w-full h-auto object-cover">
                 </div>
                 <div
                     class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-400/20 dark:bg-indigo-500/10 rounded-full blur-2xl">
@@ -138,13 +137,20 @@ const ui = {
                 <div
                     class="absolute -bottom-6 -left-6 z-10 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl dark:shadow-2xl dark:border dark:border-slate-700 hidden md:block animate-bounce-slow">
                     <div class="flex items-center gap-3">
-                        <div
+                        <!-- <div
                             class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
                             <span class="font-bold">✓</span>
+                        </div> -->
+                        <!-- create ongoing badge -->
+                        <div
+                            class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
+                            <span class="font-bold">
+                                <UIcon name="i-lucide-settings" class="animate-spin size-5 flex" />
+                            </span>
                         </div>
                         <div>
                             <p class="text-xs text-muted font-medium">Project Status</p>
-                            <p class="text-sm font-bold text-highlighted">Completed</p>
+                            <p class="text-sm font-bold text-highlighted">Ongoing</p>
                         </div>
                     </div>
                 </div>
@@ -153,7 +159,7 @@ const ui = {
         </UPageHero>
 
         <UPageSection headline="About Me" title="Bridging the gap between design and development"
-            description="I am a passionate UI/UX Designer and UI Developer with over 5 years of experience in creating digital products. My unique background allows me to design with implementation in mind, ensuring that beautiful interfaces are also feasible, accessible, and performant. I thrive in collaborative environments and love solving complex problems through clean, minimal design."
+            description="I am a passionate Full-Stack UI/UX Designer with over 5 years of experience in creating digital products. My unique background allows me to design with implementation in mind, ensuring that beautiful interfaces are also feasible, accessible, and performant. I thrive in collaborative environments and love solving complex problems through clean, minimal design."
             orientation="horizontal" reverse :ui="ui.UPageSection">
             <template #body>
                 <div class="grid lg:grid-cols-2 gap-8">
@@ -278,7 +284,7 @@ const ui = {
                                     Mobile
                                 </h4>
                                 <p class="font-space text-muted text-sm">
-                                    09123456789
+                                    +63 915 760 7996
                                 </p>
                             </div>
                         </div>
