@@ -14,7 +14,7 @@ export const projects: Project[] = [
         description: 'An AI-powered learning companion designed to identify knowledge gaps and accelerate mastery through personalized study plans.',
         image: 'acumen',
         tags: ['AI', 'Nuxt', 'Vue', 'Tailwind CSS'],
-        to: 'https://app-acumen.vercel.app/',
+        to: 'https://ai-acumen.vercel.app/',
         featured: true
     },
     {
